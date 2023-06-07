@@ -9,7 +9,7 @@ pipeline {
     }
     stages {
         stage('Test') {
-
+            steps {
                 stage('Unit tests') {
                     steps {
                         sh './mvnw test -D testGroups=unit'
@@ -21,7 +21,7 @@ pipeline {
                         sh './mvnw test -D testGroups=integration'
                     }
                 }		
-
+            }
         }
     }
 }
