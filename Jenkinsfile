@@ -22,7 +22,14 @@ pipeline {
 		stage('Build') {
 				steps {
 				
-					sh './mvnw package -D skipTests'
+                script {
+                    try {
+                        sh './mvnw package -D skipTests'
+                    } catch (ex) {
+                        echo "Error while generating JAR file"
+                        throw ex
+                    }
+					}
 				}
 		
 		
