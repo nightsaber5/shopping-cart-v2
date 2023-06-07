@@ -9,7 +9,7 @@ pipeline {
     }
     stages {
         stage('Test') {
-            steps {
+            parallel {
                 stage('Unit tests') {
                     steps {
                         sh './mvnw test -D testGroups=unit'
