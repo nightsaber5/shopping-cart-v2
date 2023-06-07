@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        node {
-            label 'nodejs'
-        }
-		}
+    agent any
     parameters {
         booleanParam(name: "RUN_INTEGRATION_TESTS", defaultValue: true)
     }
